@@ -1,0 +1,71 @@
+us-east-1:
+    name: N. Virginia (US)
+    lat: 37.952517
+    long: -77.608462
+us-east-2:
+    name: Ohio (US)
+    lat: 39.889911
+    long: -83.001572
+us-west-1:
+    name: N. California (US)
+    lat: 39.966426
+    long: -122.833776
+us-west-2:
+    name: Oregon (US)
+    lat: 43.791332
+    long: -120.728691
+    endpoint: https://fa9pda939h.execute-api.us-west-2.amazonaws.com/dev
+ap-south-1:
+    name: Mumbai (India)
+    lat: 19.080741
+    long: 72.874265
+ap-northeast-2:
+    name: Seoul (Korea)
+    lat: 37.553042
+    long: 126.981985
+ap-southeast-1:
+    name: Singapore 
+    lat: 1.354497
+    long: 103.864149
+ap-southeast-2:
+    name: Sydney (Australia)
+    lat: -33.886697
+    long: 151.198348
+ap-northeast-1:
+    name: Tokyo (Japan)
+    lat: 35.677724
+    long: 139.781101
+ca-central-1:
+    name: Canada Central
+    lat: 45.469775
+    long: -73.464431
+cn-north-1:
+    name: Beijing (China)
+    lat: 39.901684
+    long: 116.371322
+cn-northwest-1:
+    name: Ningxia (China)
+    lat: 37.288751
+    long: 105.959240
+eu-central-1:
+    name: Frankfurt (Germany)
+    lat: 50.110560
+    long: 8.636554
+    endpoint: https://mogrhiyd62.execute-api.eu-central-1.amazonaws.com/dev
+eu-west-1:
+    name: Dublin (Ireland)
+    lat: 53.350888
+    long: -6.266312
+    endpoint: https://bfx7yolvrl.execute-api.eu-west-1.amazonaws.com/dev
+eu-west-2:
+    name: London (UK)
+    lat: 51.512713
+    long: -0.090649
+eu-west-3:
+    name: Paris (France)
+    lat: 48.857031
+    long: 2.349804
+sa-east-1:
+    name: São Paulo (Brazil)
+    lat: -23.562630
+    long: -46.653028

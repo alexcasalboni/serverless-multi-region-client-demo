@@ -1,0 +1,135 @@
+body {
+  font-family: Lato, Helvetica Neue, Helvetica, Roboto, sans-serif;
+  background: #222;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-title {
+  font-size: 1.4em;
+  color: white;
+  line-height: 35px;
+}
+
+.page-header {
+  color: #fff;
+  height: 80px;
+  border-bottom: 2px solid #fff;
+  font-size: 1.4em;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+.page-header h1 {
+  margin: 0;
+  height: 40px;
+  line-height: 35px;
+  overflow: hidden;
+}
+
+.page-header small {
+  margin-left: 15px;
+}
+
+.MapContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.MapSidebar {
+  position: absolute;
+  right: -100%;
+  top: 0;
+  z-index: 1000;
+  width: 25%;
+  min-width: 250px;
+  transition: right ease-out 1s;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  height: 500px;
+  box-sizing: border-box;
+  color: white;
+  background-color: #222;
+}
+
+.MapContainer.active .MapSidebar {
+  right: 0;
+}
+
+.DistancesKMContainer {
+  overflow-y: scroll;
+  max-height: 345px;
+}
+
+.DistancesKM {
+  text-align: left;
+  font-size: 80%;
+  width: 100%;
+  line-height: 100%;
+  padding: 15px;
+}
+
+.RegionDistance {
+  font-style: italic;
+  width: 40%;
+}
+
+.available .RegionDistance {
+  text-decoration: underline;
+}
+
+.RegionKM,
+.RegionMiles {
+  font-weight: lighter;
+  width: 30%;
+}
+
+
+.MapSidebar .SideBarTitle {
+  padding: 20px;
+  margin: 0 0 20px 0;
+  border-bottom: 2px solid #fff;
+}
+
+.MapSidebar .form-group{
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.MapSidebar button {
+  margin-top: 10px;
+}
+
+.MapSidebar .ReadResults,
+.MapSidebar .WriteResults {
+  text-align: left;
+  margin: 10px 5%;
+  width: 90%;
+}
+
+.MapSidebar .ReadForm {
+  height: 220px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #fff;
+}
+
+@media only screen and (max-width: 1000px) {
+  .page-header h1 small {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .page-header h1 {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .github-fork-ribbon-wrapper {
+    display: none;
+  }
+}
