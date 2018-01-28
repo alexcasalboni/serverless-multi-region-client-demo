@@ -1,0 +1,31 @@
+{
+  "name": "serverless-multi-region-client-demo",
+  "version": "1.0.0",
+  "description": "Sample frontend for a multi-region serverless application on AWS.",
+  "author": "Alex Casalboni <alex@cloudacademy.com>",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "nprogress": "^0.2.0",
+    "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.2.0",
+    "react-geolocated": "^2.2.1",
+    "react-github-fork-ribbon": "^0.5.1",
+    "react-google-maps": "^9.4.5",
+    "react-scripts": "1.0.17",
+    "recompose": "^0.26.0",
+    "yamljs": "^0.3.0",
+    "npm-run-all": "^4.1.2",
+    "serve": "^6.4.8"
+  },
+  "scripts": {
+    "yaml2json": "node_modules/yamljs/bin/yaml2json ./src/regions.yml > ./src/regions.json",
+    "deploy": "aws s3 sync build s3://$S3_BUCKET_NAME --delete --exclude '**.DS_Store'",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all yaml2json start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all yaml2json build-js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
