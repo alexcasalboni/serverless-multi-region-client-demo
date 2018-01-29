@@ -98,7 +98,7 @@ export class PathMarker extends React.Component {
 
   render() {
     if (!this.source || !this.target) {
-      return;
+      return null;
     }
     return <Marker
       position={this.getPosition()}

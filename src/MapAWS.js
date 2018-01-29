@@ -100,7 +100,6 @@ class MapAWS extends React.PureComponent {
             map={refs.map}
             source={this.userRef}
             target={this.regionsRef[this.state.region.name]}
-            saveRef={(ref) => {this.pathRef = ref;}}
           />
         )
       }

@@ -119,7 +119,7 @@ class RegionSideBar extends React.Component {
   
     render() {
       if (!this.props.region) {
-        return;
+        return null;
       }
       return <div>
         <h3 className="SideBarTitle">{this.props.region.name}</h3>
