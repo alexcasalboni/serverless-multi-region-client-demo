@@ -14,7 +14,7 @@ us-west-2:
     name: Oregon (US)
     lat: 43.791332
     long: -120.728691
-    endpoint: https://fa9pda939h.execute-api.us-west-2.amazonaws.com/dev
+    endpoint: https://3lkxmryrw0.execute-api.us-west-2.amazonaws.com/dev
 ap-south-1:
     name: Mumbai (India)
     lat: 19.080741
@@ -51,12 +51,12 @@ eu-central-1:
     name: Frankfurt (Germany)
     lat: 50.110560
     long: 8.636554
-    endpoint: https://mogrhiyd62.execute-api.eu-central-1.amazonaws.com/dev
+    endpoint: https://5l1842iu48.execute-api.eu-central-1.amazonaws.com/dev
 eu-west-1:
     name: Dublin (Ireland)
     lat: 53.350888
     long: -6.266312
-    endpoint: https://bfx7yolvrl.execute-api.eu-west-1.amazonaws.com/dev
+    endpoint: https://nacyrm2z2d.execute-api.eu-west-1.amazonaws.com/dev
 eu-west-2:
     name: London (UK)
     lat: 51.512713
