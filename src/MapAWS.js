@@ -1,53 +1,10 @@
 import React from 'react';
-import { compose, withProps, withHandlers } from "recompose"
-import { withGoogleMap, withScriptjs, GoogleMap } from "react-google-maps"
 import {geolocated} from 'react-geolocated';
+import {Map, refs} from './Map'
 import RegionSideBar from './RegionSideBar';
 import UserSideBar from './UserSideBar';
 import {RegionMarker, UserMarker, PathMarker} from './Markers'
 import regions from './regions.json';
-
-const refs = {
-  map: undefined,
-};
-
-const Map = compose(
-    withProps({
-      googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" + process.env.REACT_APP_GOOGLE_MAP_API_KEY,
-      loadingElement: <div style={{ height: `100%` }} />,
-      containerElement: <div style={{ height: `500px` }} />,
-      mapElement: <div style={{ height: `100%` }} />,
-      defaultCenterLat: 50.110560,
-      defaultCenterLng: 8.636554,
-      defaultZoom: 3,
-    }),
-    withHandlers({
-      onMapMounted: () => ref => {
-        refs.map = ref;
-      },
-    }),
-    withScriptjs,
-    withGoogleMap
-  )((props) =>
-    <GoogleMap
-      options={{
-        fullscreenControl: false,
-        streetViewControl: false,
-        mapTypeControl: false,
-        zoomControlOptions: {
-          position: window.google.maps.ControlPosition.TOP_LEFT,
-        }
-      }}
-      ref={props.onMapMounted}
-      defaultZoom={props.defaultZoom}
-      defaultCenter={{
-        lat: props.defaultCenterLat,
-        lng: props.defaultCenterLng
-      }}
-    >
-      {props.markers}
-    </GoogleMap>
-)
 
 
 class MapAWS extends React.PureComponent {
@@ -57,6 +14,7 @@ class MapAWS extends React.PureComponent {
     this.state = {
       region: null,
       user: false,
+      markers: [],
     };
     this.regionsRef = {};
   }
@@ -69,6 +27,7 @@ class MapAWS extends React.PureComponent {
       region: state.region === region ? null : region,
       user: false,
     }));
+    this.updateMarkers();
   }
 
   handleUserClick = (region) => {
@@ -76,6 +35,7 @@ class MapAWS extends React.PureComponent {
       user: !state.user,
       region: null,
     }));
+    this.updateMarkers();
   }
 
   buildRegionMarker = (regionCode, region) =>
@@ -100,7 +60,7 @@ class MapAWS extends React.PureComponent {
       if (this.state.region) {
         markers.push(
           <PathMarker
-            key={"path-user-" + this.state.region.name}
+            key={`path-user-${refs.map.getZoom()}-${this.state.region.name}`}
             map={refs.map}
             source={this.userRef}
             target={this.regionsRef[this.state.region.name]}
@@ -121,13 +81,29 @@ class MapAWS extends React.PureComponent {
     this.props.isGeolocationEnabled &&
     this.props.coords
 
-  isSidebarActive = () =>
-    this.state.region || this.state.user
+  isSidebarActive = () => this.state.region || this.state.user
 
-  render = () => (
-    <div className={'MapContainer ' + (this.isSidebarActive() ? 'active' : '')}>
+  updateMarkers() {
+    this.setState({
+      markers: this.getMarkers(),
+    })
+  }
+
+  onZoomChanged = () => this.updateMarkers()
+  componentDidMount = () => this.updateMarkers()
+
+  render() {
+    if (this.hasGeolocation()) {  // workaround (there is no event to detect geolocation)
+      if (!this.state.markers.filter(m => m.type === UserMarker).length) {
+        setTimeout(() => this.updateMarkers(), 500);  // side-effect (anti-pattern))
+      }
+    }
+    return <div className={'MapContainer ' + (this.isSidebarActive() ? 'active' : '')}>
       <div className="Map">
-        <Map markers={this.getMarkers()} />
+        <Map
+          onZoomChanged={this.onZoomChanged}
+          markers={this.state.markers}
+        />
       </div>
       <div className="MapSidebar">
         {
@@ -145,7 +121,7 @@ class MapAWS extends React.PureComponent {
         }
       </div>
     </div>
-  )
+  }
 
 }
 
