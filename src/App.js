@@ -16,7 +16,7 @@ const App = (props) => {
       </PageHeader>
       <MapAWS />
       <GitHubForkRibbon
-        href="https://github.com/alexdebrie/serverless-multi-region"
+        href="https://github.com/alexcasalboni/serverless-multi-region-client-demo"
         target="_blank"
         position="right"
         color="orange">
