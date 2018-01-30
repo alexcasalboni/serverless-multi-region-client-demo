@@ -33,6 +33,10 @@ const Map = compose(
       options={{
         fullscreenControl: false,
         streetViewControl: false,
+        mapTypeControl: false,
+        zoomControlOptions: {
+          position: window.google.maps.ControlPosition.TOP_LEFT,
+        }
       }}
       ref={props.onMapMounted}
       defaultZoom={props.defaultZoom}
