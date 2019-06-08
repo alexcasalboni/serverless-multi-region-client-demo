@@ -12,7 +12,7 @@ const App = (props) => {
     <div className="App"> 
       <PageHeader>
         Multi-region Sample App
-        <small>Powered by the Serverless Framework</small>
+        <small>https://map.global.faas.website</small>
       </PageHeader>
       <MapAWS />
       <GitHubForkRibbon

@@ -69,3 +69,11 @@ sa-east-1:
     name: São Paulo (Brazil)
     lat: -23.562630
     long: -46.653028
+ap-east-1:
+    name: Asia Pacific (Hong Kong)
+    lat: 22.318904
+    long: 114.175047
+eu-north-1:
+    name: EU (Stockholm)
+    lat: 59.328328
+    long: 18.065168
