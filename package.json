@@ -16,7 +16,7 @@
     "recompose": "^0.26.0",
     "yamljs": "^0.3.0",
     "npm-run-all": "^4.1.2",
-    "serve": "^6.4.8"
+    "serve": "^11.2.0"
   },
   "scripts": {
     "yaml2json": "node_modules/yamljs/bin/yaml2json ./src/regions.yml > ./src/regions.json",
